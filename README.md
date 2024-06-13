@@ -3,17 +3,28 @@ A Docker image for using [Buildroot][buildroot]. It can be found on [Docker
 Hub][hub].
 
 ## Get started
+Clone this Repo
+[!WARNING] 
+Make sure the full directory path is lower case, Docker does not like upper case directories
+``` shell
+$ git clone https://github.com/AdvancedClimateSystems/docker-buildroot.git
+```
+Change into the new folder
+``` shell
+$ cd docker-buildroot
+```
+
 To get started build the Docker image.
 
 ``` shell
-$ docker build -t "advancedclimatesystems/buildroot" .
+$ docker build -t "advancedclimatesystems/docker-buildroot" .
 ```
 
 Create a [data-only container][data-only] to use as build and download
 cache and to store your build products.
 
 ``` shell
-$ docker run -i --name buildroot_output advancedclimatesystems/buildroot /bin/echo "Data only."
+$ docker run -i --name buildroot_output advancedclimatesystems/docker-buildroot /bin/echo "Data only."
 ```
 
 This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
