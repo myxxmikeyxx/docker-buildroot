@@ -36,11 +36,9 @@ RUN apt-get update && \
     libssl-dev \
     libfdt-dev
 
-RUN set FORCE_UNSAFE_CONFIGURE=1 
-
 RUN locale-gen en_US.utf8
 
-RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2023.05 /root/buildroot
+RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2024.05 /root/buildroot
 
 WORKDIR /root/buildroot
 
@@ -51,5 +49,8 @@ RUN touch kernel.config
 
 VOLUME /root/buildroot/dl
 VOLUME /buildroot_output
+
+ENV FORCE_UNSAFE_CONFIGURE=1
+RUN set FORCE_UNSAFE_CONFIGURE=1
 
 RUN ["/bin/bash"]
