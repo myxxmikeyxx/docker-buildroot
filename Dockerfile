@@ -36,11 +36,11 @@ RUN apt-get update && \
     libssl-dev \
     libfdt-dev
 
-# Sometimes Buildroot need proper locale, e.g. when using a toolchain
-# based on glibc.
+RUN set FORCE_UNSAFE_CONFIGURE=1 
+
 RUN locale-gen en_US.utf8
 
-RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2021.02 /root/buildroot
+RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2023.05 /root/buildroot
 
 WORKDIR /root/buildroot
 
