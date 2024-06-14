@@ -7,24 +7,24 @@ Clone this Repo
 [!WARNING] 
 Make sure the full directory path is lower case, Docker does not like upper case directories
 ``` shell
-$ git clone https://github.com/AdvancedClimateSystems/docker-buildroot.git
+git clone https://github.com/myxxmikeyxx/docker-buildroot.git
 ```
 Change into the new folder
 ``` shell
-$ cd docker-buildroot
+cd docker-buildroot
 ```
 
 To get started build the Docker image.
 
 ``` shell
-$ docker build -t "advancedclimatesystems/docker-buildroot" .
+docker build -t "advancedclimatesystems/docker-buildroot" .
 ```
 
 Create a [data-only container][data-only] to use as build and download
 cache and to store your build products.
 
 ``` shell
-$ docker run -i --name buildroot_output advancedclimatesystems/docker-buildroot /bin/echo "Data only."
+docker run -i --name buildroot_output advancedclimatesystems/docker-buildroot /bin/echo "Data only."
 ```
 
 This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
@@ -38,8 +38,8 @@ to build a kernel for the Raspberry Pi using the a defconfig provided by
 Buildroot.
 
 ``` shell
-$ ./scripts/run.sh make raspberrypi2_defconfig menuconfig
-$ ./scripts/run.sh make
+./scripts/run.sh make raspberrypi2_defconfig menuconfig
+./scripts/run.sh make
 ```
 
 Build products are stored inside the container at `/buildroot_output/images`.
@@ -57,8 +57,8 @@ modifications can be apllied with the environment variable `BR2_EXTERNAL`.
 Read [here][br2_external] more about customizations of Buildroot.
 
 ```shell
-$ ./scripts/run.sh make "BR2_EXTERNAL=/root/buildroot/external docker_python2_defconfig menuconfig"
-$ ./scripts/run.sh make
+./scripts/run.sh make "BR2_EXTERNAL=/root/buildroot/external docker_python2_defconfig menuconfig"
+./scripts/run.sh make
 ```
 
 If you've modified the configuration using `menuconfig` and you want to save
